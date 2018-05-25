@@ -47,13 +47,13 @@ def get_all_tweets(screen_name):
         twt = tweet.text
         if tweet.truncated:
             twt = api.get_status(tweet.id, tweet_mode='extended').full_text
-        twt = cleanTweet(twt)
+        twt = clean_tweet(twt)
         all_full_tweets.append(twt)
 
     return all_full_tweets
 
 
-def cleanTweet(tweet):
+def clean_tweet(tweet):
     try:
         tweet = tweet[:tweet.index("https://t.co/")]
     except ValueError:
